@@ -8,21 +8,11 @@
         "type": "node",
         "request": "launch",
         "name": "Test",
-        "program": "${workspaceFolder}\\build\\test\\test-agent.js",
+        "program": "${workspaceFolder}\\test\\test-agent.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": [
             "${workspaceFolder}/build/**/*.js"
         ]
-    },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\build\\src\\index.js",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": [
-                "${workspaceFolder}/build/**/*.js"
-            ]
-        }
+    }
     ]
 }

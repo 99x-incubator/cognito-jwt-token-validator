@@ -60,5 +60,5 @@ typings/
 # dist folder
 build/
 
-# test folder
-test/
+# test parameters
+test/params

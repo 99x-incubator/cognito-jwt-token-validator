@@ -27,8 +27,3 @@ export interface JWK {
 }
 
 export interface PemDictionary { [key: string]: string|Buffer; }
-
-export enum TokenUse {
-  ID = 'id',
-  Access = 'access'
-}

@@ -4,7 +4,7 @@
   "description": "A JWT token validator to be used with cognito based custom authorizers.",
   "main": "build/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node build/test/test-agent.js",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",

@@ -2,12 +2,11 @@ import * as jwt from 'jsonwebtoken';
 import * as jwkToPem from 'jwk-to-pem';
 import * as request from 'request';
 
-import {JWK, JWT, PemDictionary, PolicyDocument, PolicyStatement, TokenUse} from './models';
+import {JWK, JWT, PemDictionary, PolicyDocument, PolicyStatement} from './models';
 
 
-export const validateIdToken = async (
-    jwtToken: string, pems: PemDictionary, iss: string, aud: string,
-    tokenUse: TokenUse) => {
+export const validateIdToken =
+    async (jwtToken: string, pems: PemDictionary, iss: string, aud: string) => {
   const decodedJwt = jwt.decode(jwtToken, {complete: true}) as JWT;
   // Fail if the token is not jwt
   if (!decodedJwt) {
@@ -19,14 +18,14 @@ export const validateIdToken = async (
     throw new Error('Invalid issuer: ' + decodedJwt.payload.iss);
   }
 
+  // Reject the jwt if it's not an id token
+  if (!(decodedJwt.payload.token_use === 'id')) {
+    throw new Error('Invalid token_use: ' + decodedJwt.payload.token_use);
+  }
+
   // Fail if token audience is invalid
   if (decodedJwt.payload.aud !== aud) {
     throw new Error('Invalid aud: ' + decodedJwt.payload.aud);
-  }
-
-  // Reject the jwt if it's not the expected type of token
-  if (!(decodedJwt.payload.token_use === tokenUse)) {
-    throw new Error('Invalid token_use: ' + decodedJwt.payload.token_use);
   }
 
   // Get the kid from the token and retrieve corresponding PEM
@@ -56,16 +55,6 @@ export const validateIdToken = async (
       }
     });
   });
-};
-
-export const generateDummyToken = (sub: string) => {
-  return jwt.sign({sub}, 'dummyKey');
-};
-
-export const decodeToken = (jwtToken: string) => {
-  const decodedJwt = jwt.decode(jwtToken, {complete: true}) as JWT;
-  if (decodedJwt) return decodedJwt;
-  throw new Error('Invalid JWT token');
 };
 
 export const getPems = (jwks: JWK[]) => {

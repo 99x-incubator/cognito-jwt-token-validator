@@ -1,0 +1,25 @@
+service:
+  name: aws-nodejs-typescript
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    iss: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_abcde
+    aud: audience 
+
+functions:
+  authorize: 
+    handler: handler.authorize
+
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: hello
+          authorizer: authorize

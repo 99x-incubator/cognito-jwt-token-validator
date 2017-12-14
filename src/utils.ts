@@ -35,7 +35,7 @@ export const validateIdToken =
     throw new Error('Invalid kid: ' + decodedJwt.header.kid);
   }
 
-  return new Promise((resolve, reject) => {
+  return new Promise<{[key: string]: string}>((resolve, reject) => {
     jwt.verify(jwtToken, pem, {issuer: iss}, (err, payload) => {
       if (err) {
         switch (err.name) {

@@ -27,11 +27,11 @@ export class Validator {
    * @returns Decoded payload data of the JWT token upon successful validation.
    */
   async validate(token?: string) {
-    let tokenPayload: {} = {sub: 'Dummy'};
+    let tokenPayload: {[key: string]: string} = {sub: 'Dummy'};
 
     if (this.fakeAuth) {
       debug('Running in fake Authorization mode.');
-      if (token) tokenPayload = token;
+      if (token) tokenPayload.token = token;
     } else {
       if (!token) throw new Error('No token provided');
       if (!this.pems) {
@@ -43,6 +43,7 @@ export class Validator {
       tokenPayload =
           await validateIdToken(token, this.pems, this.iss, this.aud);
     }
+
     debug('JWT token validated.');
     return tokenPayload;
   }

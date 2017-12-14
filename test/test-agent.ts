@@ -24,7 +24,7 @@ rl.question('Issuer: ', (iss) => {
   rl.question('Audience: ', (aud) => {
     testToken(iss, aud, rl)
         .then((res) => console.log(res))
-        .then(()=> rl.close())
+        .then(() => rl.close())
         .catch((err) => console.log(err));
   });
 });

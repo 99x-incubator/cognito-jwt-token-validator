@@ -2,6 +2,11 @@
 
  Cognito JWT Token Validator provides an easy solution to validate JWT ID tokens provided by Cognito IdP, that is to be used in a custom authorizer. 
 
+## Features
+
+* Automatic handling of JWKs
+* Verification of JWT with the issuer, audience, token_use, and expiry
+
 ## Installation
 
 ```bash
@@ -19,7 +24,7 @@ import { Validator } from 'cognito-jwt-token-validator';
 const validator = new Validator('issuer', 'audience');
 const authorize = async (token) => {
 	try {
-    	const payload = await validator.validate(tonken);
+    	const payload = await validator.validate(token);
     	return {
     		userid: payload.sub
     	};

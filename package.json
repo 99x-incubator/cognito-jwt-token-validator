@@ -11,7 +11,8 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "posttest": "npm run check",
+    "prepublish": "npm run prepare"
   },
   "author": "Pasindu Wijesena",
   "license": "MIT",

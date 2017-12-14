@@ -1,10 +1,9 @@
 import { Validator } from '../build/src/index';
 
-const policyMap = require('./policy-map.json');
+const validator = new Validator(process.env.iss, process.env.aud, false);
 
 export const authorize = async (event, context, cb) => {
   const token = event.authorizationToken;
-  const validator = new Validator(process.env.iss, process.env.aud, false);
 
   if (!token) {
     return cb('Missing authorization token');

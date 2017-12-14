@@ -1,0 +1,31 @@
+{
+  "name": "cognito-jwt-token-validator",
+  "version": "1.0.0",
+  "description": "A JWT token validator to be used with cognito based custom authorizers.",
+  "main": "build/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
+  },
+  "author": "Pasindu Wijesena",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/debug": "0.0.30",
+    "@types/jsonwebtoken": "^7.2.3",
+    "@types/request": "^2.0.8",
+    "gts": "^0.5.2",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "jsonwebtoken": "^8.1.0",
+    "jwk-to-pem": "^1.2.6",
+    "request": "^2.83.0"
+  }
+}

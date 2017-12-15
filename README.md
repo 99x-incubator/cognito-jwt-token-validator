@@ -53,4 +53,6 @@ const authorize = function (token) {
 
 ```
 
+Refer the demo/ directory for a complete implementation.
+
 ## Contributing

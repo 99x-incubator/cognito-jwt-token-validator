@@ -48,3 +48,5 @@ export class Validator {
     return tokenPayload;
   }
 }
+
+export default Validator;

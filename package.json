@@ -14,6 +14,17 @@
     "posttest": "npm run check",
     "prepublish": "npm run prepare"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/99xt/cognito-jwt-token-validator"
+  },
+  "keywords": [
+    "serverless",
+    "cognito",
+    "custom-authorizer",
+    "aws",
+    "jwt"
+  ],
   "author": "Pasindu Wijesena",
   "license": "MIT",
   "devDependencies": {

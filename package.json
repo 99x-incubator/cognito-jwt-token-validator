@@ -1,6 +1,6 @@
 {
   "name": "cognito-jwt-token-validator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A JWT token validator to be used with cognito based custom authorizers.",
   "main": "build/src/index.js",
   "scripts": {

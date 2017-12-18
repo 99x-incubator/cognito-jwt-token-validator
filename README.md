@@ -41,7 +41,8 @@ const authorize = async (token) => {
 
 Javascript (with promises): 
 ```javascript
-const validator = require('cognito-jwt-token-validator')('iss', 'aud'); 
+const Validator = require('cognito-jwt-token-validator').Validator; 
+const validator = new Validator('issuer', 'audience');
 
 // Authorize function
 const authorize = function (token) {

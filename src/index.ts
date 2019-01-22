@@ -6,7 +6,7 @@ import {getJWKs, getPems, validateIdToken} from './utils';
 const debug = Logger('cognito-jwt-token-validator');
 
 export class Validator {
-  private pems: PemDictionary;
+  private pems?: PemDictionary;
 
   /**
    *

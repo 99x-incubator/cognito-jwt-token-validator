@@ -17,7 +17,7 @@ export class Validator {
    *
    */
   constructor(
-      private iss: string, private aud: string, private token_use: string, private fakeAuth = false) {}
+      private iss: string, private aud: string, private token_use: string = 'id', private fakeAuth = false) {}
 
   /**
    *

@@ -23,8 +23,8 @@ export const validateIdToken =
     throw new Error('Invalid token_use: ' + decodedJwt.payload.token_use);
   }
 
-  // Fail if token audience is invalid
-  if (decodedJwt.payload.aud !== aud) {
+  // Fail if token audience is invalid and using id token
+  if (decodedJwt.payload.aud !== aud && token_use === 'id') {
     throw new Error('Invalid aud: ' + decodedJwt.payload.aud);
   }
 

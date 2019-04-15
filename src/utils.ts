@@ -6,7 +6,7 @@ import {JWK, JWT, PemDictionary, PolicyDocument, PolicyStatement} from './models
 
 
 export const validateIdToken =
-    async (jwtToken: string, pems: PemDictionary, iss: string, aud: string) => {
+    async (jwtToken: string, pems: PemDictionary, iss: string, aud: string, token_use: string) => {
   const decodedJwt = jwt.decode(jwtToken, {complete: true}) as JWT;
   // Fail if the token is not jwt
   if (!decodedJwt) {
@@ -19,7 +19,7 @@ export const validateIdToken =
   }
 
   // Reject the jwt if it's not an id token
-  if (!(decodedJwt.payload.token_use === 'id')) {
+  if (!(decodedJwt.payload.token_use === token_use)) {
     throw new Error('Invalid token_use: ' + decodedJwt.payload.token_use);
   }
 

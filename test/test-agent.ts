@@ -11,7 +11,7 @@ async function testToken(iss: string, aud: string, rl: readline.ReadLine) {
            });
          })
       .then((token) => {
-        const validator = new Validator(iss, aud);
+        const validator = new Validator(iss, aud, 'id');
         return validator.validate(token);
       });
 }

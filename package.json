@@ -14,7 +14,7 @@
     "pretest": "npm run compile",
     "posttest": "npm run check",
     "prepublish": "npm run prepare",
-    "preinstall": "npm run prepapre"
+    "preinstall": "npm run prepare"
   },
   "repository": {
     "type": "git",

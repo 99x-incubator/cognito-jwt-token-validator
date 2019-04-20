@@ -8,7 +8,7 @@
     "test": "node build/test/test-agent.js",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "npx tsc -p .",
+    "compile": "npx -p typescript@^2.6.1 tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",

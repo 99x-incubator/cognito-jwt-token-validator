@@ -8,12 +8,13 @@
     "test": "node build/test/test-agent.js",
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc -p .",
+    "compile": "npx -p typescript@^2.6.1 tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
-    "prepublish": "npm run prepare"
+    "prepublish": "npm run prepare",
+    "prepack": "npm run prepare"
   },
   "repository": {
     "type": "git",

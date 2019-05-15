@@ -17,7 +17,7 @@ export class Validator {
    *
    */
   constructor(
-      private iss: string, private aud: string, private fakeAuth = false) {}
+      private iss: string, private aud: string, private token_use: string = 'id', private fakeAuth = false) {}
 
   /**
    *
@@ -41,7 +41,7 @@ export class Validator {
         debug('PEMs generated from JWKs.');
       }
       tokenPayload =
-          await validateIdToken(token, this.pems, this.iss, this.aud);
+          await validateIdToken(token, this.pems, this.iss, this.aud, this.token_use);
     }
 
     debug('JWT token validated.');

@@ -12,9 +12,9 @@ export interface PolicyStatement {
 }
 
 export interface JWT {
-  header: {[key: string]: string};
-  payload: {[key: string]: string};
-  signature: {[key: string]: string};
+  header: { [key: string]: string };
+  payload: { [key: string]: string };
+  signature: { [key: string]: string };
 }
 
 export interface JWK {
@@ -26,4 +26,4 @@ export interface JWK {
   use: string;
 }
 
-export interface PemDictionary { [key: string]: string|Buffer; }
+export interface PemDictionary { [key: string]: string | Buffer; }

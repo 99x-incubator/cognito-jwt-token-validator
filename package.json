@@ -32,6 +32,9 @@
     "@types/debug": "0.0.30",
     "@types/jsonwebtoken": "^7.2.3",
     "@types/request": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.8.0",
     "gts": "^0.5.2",
     "typescript": "^2.6.1"
   },

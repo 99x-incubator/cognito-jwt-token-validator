@@ -39,6 +39,7 @@
     "debug": "^3.1.0",
     "jsonwebtoken": "^8.1.0",
     "jwk-to-pem": "^1.2.6",
+    "jwks-rsa": "^1.6.0",
     "request": "^2.83.0"
   }
 }

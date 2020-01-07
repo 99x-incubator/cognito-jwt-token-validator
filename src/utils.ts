@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken';
 import * as jwkToPem from 'jwk-to-pem';
-import * as request from 'request';
+import * as jwksClient from 'jwks-rsa';
 
 import {JWK, JWT, PemDictionary, PolicyDocument, PolicyStatement} from './models';
 
@@ -73,12 +73,20 @@ export const getPems = (jwks: JWK[]) => {
 
 export const getJWKs = async (jwksPath: string) => {
   return new Promise((resolve, reject) => {
-    request({url: jwksPath, json: true}, (error, response, body) => {
-      if (error || response.statusCode !== 200) {
+    const keyClient = jwksClient({
+      cache: true,
+      cacheMaxAge: 86400000, //value in ms
+      rateLimit: true,
+      jwksRequestsPerMinute: 10,
+      strictSsl: true,
+      jwksUri: jwksPath
+    });
+    keyClient.getKeys((err, keys) => {
+      if (err) {
         return reject(new Error(
-            'Error while getting JWKs. ' + JSON.stringify(error, null, 2)));
+            'Error while getting JWKs. ' + JSON.stringify(err, null, 2)));
       }
-      resolve(body['keys']);
+      resolve(keys);
     });
   });
 };

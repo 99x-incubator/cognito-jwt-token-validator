@@ -1,7 +1,8 @@
 import * as Logger from 'debug';
 
-import {JWK, PemDictionary} from './models';
-import {getJWKs, getPems, validateIdToken} from './utils';
+// eslint-disable-next-line no-unused-vars
+import { JWK, PemDictionary } from './models';
+import { getJWKs, getPems, validateIdToken } from './utils';
 
 const debug = Logger('cognito-jwt-token-validator');
 
@@ -17,7 +18,8 @@ export class Validator {
    *
    */
   constructor(
-      private iss: string, private aud: string, private fakeAuth = false) {}
+    // eslint-disable-next-line no-unused-vars
+    private iss: string, private aud: string, private fakeAuth = false) { }
 
   /**
    *
@@ -27,7 +29,7 @@ export class Validator {
    * @returns Decoded payload data of the JWT token upon successful validation.
    */
   async validate(token?: string) {
-    let tokenPayload: {[key: string]: string} = {sub: 'Dummy'};
+    let tokenPayload: { [key: string]: string } = { sub: 'Dummy' };
 
     if (this.fakeAuth) {
       debug('Running in fake Authorization mode.');
@@ -41,7 +43,7 @@ export class Validator {
         debug('PEMs generated from JWKs.');
       }
       tokenPayload =
-          await validateIdToken(token, this.pems, this.iss, this.aud);
+        await validateIdToken(token, this.pems, this.iss, this.aud);
     }
 
     debug('JWT token validated.');
